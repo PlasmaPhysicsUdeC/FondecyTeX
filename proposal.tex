@@ -1,0 +1,149 @@
+\documentclass[MAIN.tex]{subfiles}
+
+\begin{document}
+
+\noindent\textbf{Propuesta de proyecto:}
+
+\bigskip
+
+\noindent\begin{tabularx}{\textwidth}{|>{\columncolor{tcc}}X|}
+  \hline In this section, you must incorporate the following aspects:
+  \begin{enumerate}[label={\alph*)},nosep]
+  \item Theoretical-conceptual and state-of-the-art developments that
+    underpin the proposal
+  \item Objectives and hypotheses or research questions
+  \item Methodology
+  \item Work Plan, schedule and Gantt chart
+  \item Background information to assess the capacity of the team to
+    implement the proposal
+  \item Scientific or technological novelty of your proposal
+  \end{enumerate}
+
+  \medskip
+
+  Remember that:
+  \begin{itemize}
+  \item All text, paragraphs or textual phrases from a bibliographic
+    reference, whether by other authors or their own, must be duly
+    identified in the text and in the list of references.
+  \item You must strictly comply with what is established in the
+    Guidelines of your studies' program.
+  \end{itemize}
+  
+  \medskip
+
+  This file must contain a maximum of \textbf{10 pages}. \\
+  \hline
+\end{tabularx}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{State-of-art}
+
+Explique detalladamente el problema o aplicación que busca
+trabajar. Para acompañar su proyecto, puede utilizar ecuaciones dentro
+del texto como $\frac{x}{\sqrt{1-x^2}}$, o bien ecuaciones enumeradas,
+por ejemplo:
+\begin{equation}\label{eq:euler}
+\exp(i\theta) = \cos(\theta) + i\sin(\theta).
+\end{equation}
+
+Puede citar ecuaciones enumeradas, por ejemplo la ecuación
+\eqref{eq:euler} es una de las ecuaciones básicas del cálculo
+complejo.
+
+También puede agregar figuras para explicar mejor sus ideas. Trate de
+citarlas adecuadamente en el texto, por ejemplo, la figura
+\ref{fig:figura-interesante} muestra un ejemplo usado en wikipedia
+para explicar la electricidad estática~\cite{wikistatic}.
+
+\begin{figure}[h!]
+  \centering
+  %\includegraphics[width=0.5\textwidth]{img/static_cat_wikipedia.jpg}
+  \caption{Bolas de poliestireno adheridos al pelaje de un gato debido
+    a la electricidad estática.~\cite{wikistatic}.}
+  \label{fig:figura-interesante}
+\end{figure}
+
+\subsection{A subsection}
+
+Si cree necesario, puede separar el texto en subsecciones.
+
+Para darle peso a su proyecto, puede citar libros, páginas web o artículos científicos. Por ejemplo, esta es una referencia 
+\cite{AF:2003} o dos referencias juntas \cite{CEL:arXiv, MS}.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Goals}
+
+\subsection{Main goal}
+
+Un único párrafo indicando, en general, el objetivo de este proyecto o
+los resultados esperados. Este párrafo debe empezar por un verbo (Por
+ejemplo, resolver, estudiar, simular, derivar, entre otros).
+
+\subsection{Specific goals}
+\begin{enumerate}
+\item Escribir un máximo de tres objetivos, todos distintos y deben empezar con un verbo.
+\item Esta es una lista de objetivos más simples que ayudarán a cumplir el objetivo general.
+\item Cada objetivo específico estará relacionado a una metodología.
+\end{enumerate}
+
+\section{Hypothesis}
+
+
+\section{Methodology}
+
+\begin{enumerate}
+\item Describa cómo llevará a cabo cada objetivo específico. 
+\item Cada actividad que proponga, debe ser listada en la carta Gantt (ver plan de trabajo).
+\item Enliste las herramientas que utilizará para llevar a cabo su proyecto (por ejemplo, lenguajes de programación, recursos computacionales disponibles, características de los computadores donde llevará a cabo su trabajo, etc.).  
+\end{enumerate}
+
+\subsection{Methodology for specific goal \#1} 
+
+\subsection{Methodology for specific goal \#2}
+
+\subsection{Methodology for specific goal \#3}
+
+
+\section{Work plan}
+
+Explique las tareas que realizará para cumplir con los objetivos
+específicos. Además, justifique el tiempo que cree que dedicará a cada
+una de estas tareas. Luego, resumirá estas tareas y tiempos de
+ejecución en una tabla que llamamos \textit{carta Gantt}.
+
+\subsection{Gantt chart}
+% example adapted from https://tex.stackexchange.com/questions/587422/draw-gantt-chart-latex-with-pgfgantt/587449#587449
+\begin{center}
+  \begin{ganttchart}[vgrid, hgrid, 
+    y unit title=0.5cm,
+    y unit chart=0.5cm,
+    x unit=1.5cm,
+    title height=1,
+    progress label text={},
+    bar height=0.5 ]{1}{8}   % divide la tabla en 8 columnas. 
+    % Esta carta gantt está dividida en 8 semanas (2 meses). Cada
+    % columna representa una semana.
+
+    % periodos
+    \gantttitle{2021}{8} \\ % titulo usa 8 columnas
+    \gantttitle{Noviembre}{4} \gantttitle{Diciembre}{4} \\ % 2 titulos, cada uno usa 4 columnas
+
+    % tareas
+    \ganttbar[progress=30, name=obj1]{Actividad \#1}{1}{2} \\  % actividad se realiza entre las semanas 1-2; lleva 30% de progreso
+    \ganttbar[progress=50           ]{Actividad \#2}{3}{5} \\  % actividad entre las semanas 3-5, 50% de progreso
+    \ganttbar[progress=0, name=obj3 ]{Actividad \#3}{4}{7} \\ % actividad entre semanas 4-7, aun no inicia
+    \ganttbar[progress=0            ]{Actividad \#4}{6}{8}               % actividad entre semanas 6-8, aun no inicia
+    
+    %relations 
+    \ganttlink{obj1}{obj3} % relaciona las tareas que definen 'name' (obj3 depende de obj1)
+  \end{ganttchart}
+\end{center}
+
+
+% lista de referencias guardadas en referencias.bib
+% this part is not counted for the proposal length
+\bibliographystyle{amsplain}
+\bibliography{references}
+
+\end{document}
