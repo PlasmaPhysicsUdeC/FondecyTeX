@@ -6,23 +6,46 @@ This repository is based on [FondecyTeX by lfiguero](https://github.com/lfiguero
 
 ## Repository contents
 
-This repository contains LaTeX templates that mimic the English versions of the Microsoft Word forms that have to be filled as part of the application to the [ANID 2022 Fondecyt Regular National Competition](https://www.anid.cl/concursos/concurso/?id=603); namely:
+This repository contains LaTeX templates that mimic the English versions of the Microsoft Word forms that have to be filled as part of the application to the [ANID 2022 Fondecyt Regular National Competition](https://www.anid.cl/concursos/concurso/?id=1217); namely:
 
-* **Abstract:** [**abstract.tex**](abstract.tex) for [AbstractRegEng.docx](https://s3.amazonaws.com/documentos.anid.cl/fondecyt/2022/regular/AbstractRegEng.docx)
-* **Proposed research:** [**prop.tex**](prop.tex) for  [ProposedResearchRegEng.docx](https://s3.amazonaws.com/documentos.anid.cl/fondecyt/2022/regular/ProposedResearchRegEng.docx)
-* **Bibliographical references:** [**bib.tex**](bib.tex), which depends on the BibTeX file [**refs.bib**](refs.bib), for [BibliographicalReferencesRegEng.docx](https://s3.amazonaws.com/documentos.anid.cl/fondecyt/2022/regular/BibliographicalReferencesRegEng.docx),
-<!-- * **Justification of requested amounts:** [**justification.tex**](justification.tex) for [JustificationRequestedAmountsRegEng.docx](https://s3.amazonaws.com/documentos.anid.cl/fondecyt/2022/regular/JustificationRequestedAmountsRegEng.docx) -->
-* **Available resources:** [**resources.tex**](resources.tex) for [AvailableResourcesRegEng.docx](https://s3.amazonaws.com/documentos.anid.cl/fondecyt/2022/regular/AvailableResourcesRegEng.docx)
+* A master file ([MAIN.tex](MAIN.tex)) that customizes the packages (`\usepackage`) and custom commands (`\newcommand`) needed to compile all of the following files.
 
-There is also a file for justification of requested amounts [justification.tex](justification.tex), but this is **not** needed for students projects.
+* The [abstract](abstract.tex) of the proposal.
 
-These LaTeX source files are all included in the container [**MAIN.tex**](main.tex) LaTeX source code, where additional packages (`\usepackage`) and custom commands (`\newcommand`) should go.
+* The [research proposal](proposal.tex), where the state-of-art, objectives, methodologies, and work plan for the project is written. 
 
-Notice that we use the package [subfiles](https://www.overleaf.com/learn/latex/Multi-file_LaTeX_project). This allows to compile each section (abstract, proposed research, and available resources) independently of each other. For example, [abstract.tex](abstract.tex) includes a line `\documentclass[MAIN.tex]{subfiles}`, meaning that it inherits the packages and commands defined in [MAIN.tex](MAIN.tex). Thus, you can create `abstract.pdf` by running:
+* The [list of references](references.tex).
+
+* The [justification of requested amounts](justification.tex).
+
+* The [available resources](resources.tex) commited by the sponsoring institution(s).
+
+* The [list of potential guests](guests.tex) for international cooperation.
+
+
+## How to create the PDF files 
+
+Notice that we use the package [subfiles](https://www.overleaf.com/learn/latex/Multi-file_LaTeX_project). This allows to compile each section (abstract, proposed research, and available resources) independently of each other. 
+
+We include a [Makefile](Makefile), which relies on the `latexmk` command line application to automate the latex compilation. To create a single file called `MAIN.pdf` with all the contents of the project, simply run:
 ```latex
-pdflatex abstract.tex
+make 
 ```
 
+To create a separate file for each subsection of the project (you will get `abstract.pdf`, `guests.pdf`, `justification.pdf`,  `MAIN.pdf`, `proposal.pdf`, `references.pdf`, and `resources.pdf`), run:
+```latex
+make all
+```
+
+You can also compile just one section:
+```latex
+make abstrac.pdf
+```
+
+To remove all files created after compilation, run:
+```latex
+make clean
+```
 
 
 ## How to download this repository
