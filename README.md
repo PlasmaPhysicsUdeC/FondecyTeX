@@ -2,7 +2,7 @@
 
 LaTeX templates mimicking Microsoft Word forms which constitute part of an application to the [ANID 2022 Fondecyt Regular National Competition](https://www.anid.cl/concursos/concurso/?id=603).
 
-This repository is based on (FondecyTeX by lfiguero)[https://github.com/lfiguero/FondecyTeX]
+This repository is based on [FondecyTeX by lfiguero](https://github.com/lfiguero/FondecyTeX)
 
 ## Repository contents
 
