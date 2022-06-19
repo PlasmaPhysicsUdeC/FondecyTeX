@@ -1,32 +1,45 @@
+% Copyright (c) 2021 Leonardo Figueroa (https://github.com/lfiguero/FondecyTeX)
+% Adapted in 2022 by Dr. Roberto E. Navarro <roberto.navarro@udec.cl>
+
 % LaTeX template for FONDECyT project proposals.  
 % This template can be found at: https://github.com/PlasmaPhysicsUdeC/FondecyTeX
 
-% The files included here were adapted from https://github.com/lfiguero/FondecyTeX
+% This project uses the package `subfiles`, allowing us to compile
+% each section (abstract, proposed research, and available resources)
+% independently of each other.
 
-% Este documento es modular, es decir, esta separado en varios
-% archivos para facilitar su uso. Ver uso del paquete `subfiles`.
-% https://www.overleaf.com/learn/latex/Multi-file_LaTeX_projects
-
-\documentclass[demo]{article}   % remover `demo` para cargar imagenes 
+\documentclass[
+demo   % comment/uncomment to load/ignore image files
+]{article}
 \usepackage[table]{xcolor}
-\usepackage[paper=letterpaper,left=1.2cm,right=1.2cm,top=1cm,bottom=1cm,includefoot]{geometry}
+\usepackage[paper=letterpaper,left=1.2cm,right=1.2cm,top=1cm,bottom=0.8cm,includefoot]{geometry}
 \usepackage{fancyhdr}
 \usepackage{tabularx}
 \usepackage{multirow}
-\usepackage{hyperref}
 \usepackage{hhline}
 \usepackage{amsmath}
 \usepackage{enumitem}
 \usepackage{pgfgantt}
 \usepackage{graphicx}   \graphicspath{{img/}}
 
-\usepackage[spanish]{babel}
+% \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
 
+\usepackage[square,sort,comma,numbers]{natbib}
+\usepackage{bibentry}
+\bibliographystyle{amsplain}
 
-\usepackage{subfiles} % permite que el documento sea modular
+% TODO: I tried using biblatex, but couldnt insert .bbl into references.bib
+% \usepackage[style=phys,biblabel=brackets]{biblatex}
+% \addbibresource{references.bib}
 
-%%% Comente/Descomente las siguientes lineas para cambiar la fuente del texto
+%\makeatletter\let\saved@bibitem\@bibitem\makeatother
+\usepackage[colorlinks]{hyperref}
+%\makeatletter\let\@bibitem\saved@bibitem\makeatother
+
+\usepackage{subfiles} % see https://www.overleaf.com/learn/latex/Multi-file_LaTeX_projects
+
+%%% comment/uncomment these lines to change fonts
 \usepackage{DejaVuSans}
 \renewcommand*\familydefault{\sfdefault}
 % \usepackage{sansmath}
@@ -34,8 +47,9 @@
 
 \pagestyle{fancy}
 \fancyhf{}
+\renewcommand{\footrulewidth}{0.4pt}
 \renewcommand{\headrulewidth}{0pt}
-\fancyfoot[L]{\textcolor[RGB]{127,127,127}{Master's project (title)}}
+\fancyfoot[L]{\textcolor[RGB]{127,127,127}{2023 Regular Fondecyt National Projects Competition}}
 
 \definecolor{tcc}{RGB}{217,217,217} % Table cell color
 
@@ -48,13 +62,28 @@
 
 \renewcommand{\refname}{\vspace{-2ex}}
 
+\makeatletter
+\newcommand\ifSubfilesClassLoaded{%
+  \expandafter\ifx\csname ver@subfiles.cls\endcsname\relax
+    \expandafter\@secondoftwo
+  \else
+    \expandafter\@firstoftwo
+  \fi
+}
+\makeatother
+
+
 \begin{document}
 
 
-%%% Aqui se incluyen los archivos externos
+%%% load external files
 \bigskip \subfile{abstract}
 \newpage \subfile{proposal}
-% \newpage \subfile{justification}   % not needed for thesis projects
+\newpage \subfile{references}
+
+\newpage \subfile{justification}   % not needed for thesis projects
 \newpage \subfile{resources}
+\newpage \subfile{guests}
+
 
 \end{document}

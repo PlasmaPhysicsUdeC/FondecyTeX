@@ -1,0 +1,20 @@
+\documentclass[demo, MAIN.tex]{subfiles}
+
+\begin{document}
+
+\noindent\textbf{BIBLIOGRAPHIC REFERENCES:}
+
+\bigskip
+
+\noindent In this section, include the list of full references cited
+in the Research Proposal section. \textbf{Length: 5 pages}. (Use
+letter size format, Verdana font size 10 or similar).
+
+\ifSubfilesClassLoaded{%
+  \input{MAIN.bbl}
+}{%
+  \bibliography{references}
+  %\printbibliography[heading=none]{}
+}
+
+\end{document}
