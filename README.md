@@ -12,9 +12,9 @@ This repository contains LaTeX templates that mimic the English versions of the 
 
 * The [abstract](abstract.tex) of the proposal.
 
-* The [research proposal](proposal.tex), where the state-of-art, objectives, methodologies, and work plan for the project is written. 
+* The [research proposal](proposal.tex), where the state-of-art, objectives, methodologies, and work plan for the project is written. The bibliography database is stored in [references.bib](references.bib).
 
-* The [list of references](references.tex).
+* The [list of references](references.tex). This file is populated automatically depending on the citations used in the [research proposal](proposal.tex), so you don't need to edit this file (unless you do :cold_sweat:).
 
 * The [justification of requested amounts](justification.tex).
 
@@ -39,7 +39,7 @@ make all
 
 You can also compile just one section:
 ```latex
-make abstrac.pdf
+make abstract.pdf
 ```
 
 To remove all files created after compilation, run:
