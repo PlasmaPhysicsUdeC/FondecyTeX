@@ -11,7 +11,7 @@
 \documentclass[
 demo   % comment/uncomment to load/ignore image files
 ]{article}
-\usepackage[table]{xcolor}
+\usepackage[usenames,dvipsnames,table]{xcolor}
 \usepackage[paper=letterpaper,left=1.2cm,right=1.2cm,top=1cm,bottom=0.8cm,includefoot]{geometry}
 \usepackage{fancyhdr}
 \usepackage{tabularx}
@@ -33,8 +33,8 @@ demo   % comment/uncomment to load/ignore image files
 % \addbibresource{references.bib}
 
 %\makeatletter\let\saved@bibitem\@bibitem\makeatother
-\usepackage[colorlinks]{hyperref}
-%\makeatletter\let\@bibitem\saved@bibitem\makeatother
+\usepackage[colorlinks, citecolor=ForestGreen]{hyperref}
+% \makeatletter\let\@bibitem\saved@bibitem\makeatother
 
 \usepackage{subfiles} % see https://www.overleaf.com/learn/latex/Multi-file_LaTeX_projects
 
