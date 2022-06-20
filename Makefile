@@ -3,7 +3,7 @@ PDF = ${sources:.tex=.pdf}
 
 MAIN.pdf : ${sources}
 
-references.pdf : MAIN.pdf
+references.pdf : proposal.pdf
 
 all : ${PDF}
 

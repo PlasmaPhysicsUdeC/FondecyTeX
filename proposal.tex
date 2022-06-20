@@ -143,10 +143,11 @@ ejecución en una tabla que llamamos \textit{carta Gantt}.
 \end{center}
 
 
-% lista de referencias guardadas en referencias.bib
-% this part is not counted for the proposal length
+% If this file is compiled as a separate file, do not print the references list.
+% TODO: Tried to use \nobibliography (from bibentry), but it is incompatible with the aiprev4-1 bib style
 \ifSubfilesClassLoaded{%
-  \nobibliography{references.bib}
+  \newsavebox\mytempbib
+  \savebox\mytempbib{\parbox{\textwidth}{\bibliography{references}}}
 }{}
 
 \end{document}
