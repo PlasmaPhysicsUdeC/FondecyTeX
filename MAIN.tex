@@ -25,16 +25,19 @@ demo   % comment/uncomment to load/ignore image files
 % \usepackage[spanish]{babel}
 \usepackage[utf8]{inputenc}
 
-\usepackage[square,comma,numbers]{natbib}
+% uncomment these lines for numerical bibliography style
+\usepackage[square,numbers,sort&compress]{natbib}
 \bibliographystyle{apsrev4-1}
 
-% TODO: I tried using biblatex, but couldnt insert .bbl into references.bib
+% uncomment these lines for author-year bibliography style
+% \usepackage[authoryear]{natbib}
+% \bibliographystyle{aipauth4-1}
+
+% TODO: I tried using biblatex, but couldnt insert .bbl into references.tex
 % \usepackage[style=phys,biblabel=brackets]{biblatex}
 % \addbibresource{references.bib}
 
-%\makeatletter\let\saved@bibitem\@bibitem\makeatother
 \usepackage[colorlinks, citecolor=ForestGreen]{hyperref}
-% \makeatletter\let\@bibitem\saved@bibitem\makeatother
 
 \usepackage{subfiles} % see https://www.overleaf.com/learn/latex/Multi-file_LaTeX_projects
 
