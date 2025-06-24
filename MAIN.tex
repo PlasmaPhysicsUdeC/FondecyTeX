@@ -19,6 +19,14 @@ demo   % comment/uncomment to load/ignore image files
 \usepackage{hhline}
 \usepackage{amsmath}
 \usepackage{enumitem}
+\SetEnumitemKey{dashitem}{%
+  nosep,              % no extra vertical space
+  leftmargin=5pt,     % start flush with the surrounding text
+  itemindent=0pt,     % continuation lines stay flush as well
+  label=-,           % bullet symbol
+  labelsep=0.4em      % gap between bullet and text
+}
+
 \usepackage{pgfgantt}
 \usepackage{graphicx}   \graphicspath{{img/}}
 
@@ -42,7 +50,7 @@ demo   % comment/uncomment to load/ignore image files
 \usepackage{subfiles} % see https://www.overleaf.com/learn/latex/Multi-file_LaTeX_projects
 
 %%% comment/uncomment these lines to change fonts
-\usepackage{DejaVuSans}
+\usepackage{helvet}  %{DejaVuSans}
 \renewcommand*\familydefault{\sfdefault}
 % \usepackage{sansmath}
 % \sansmath
@@ -51,10 +59,18 @@ demo   % comment/uncomment to load/ignore image files
 \fancyhf{}
 \renewcommand{\footrulewidth}{0.4pt}
 \renewcommand{\headrulewidth}{0pt}
-\fancyfoot[L]{\textcolor[RGB]{127,127,127}{2023 Regular Fondecyt National Projects Competition}}
+\fancyfoot[L]{\textcolor[RGB]{127,127,127}{\footnotesize Concurso Nacional de proyectos Fondecyt Regular 2026}}
 
-\definecolor{tcc}{RGB}{217,217,217} % Table cell color
+\definecolor{tcc}{RGB}{217,217,217} % Table cell color {HTML}{d9d9d9}
+\definecolor{fondecytblue}{HTML}{0070C0} % blue color used in fondecyt2026
 
+\usepackage{tcolorbox}
+\tcbset{
+  instructions/.style = {
+    colback=tcc, boxrule=0pt, sharp corners,
+    left=0pt,right=0pt,top=0pt,bottom=0pt,    % inner padding
+  }
+}
 \renewcommand\tabularxcolumn[1]{m{#1}}
 \setlength{\arrayrulewidth}{0.5pt}
 \renewcommand{\arraystretch}{2}
@@ -64,15 +80,15 @@ demo   % comment/uncomment to load/ignore image files
 
 \renewcommand{\refname}{\vspace{-2ex}}
 
-\makeatletter
-\newcommand\ifSubfilesClassLoaded{%
-  \expandafter\ifx\csname ver@subfiles.cls\endcsname\relax
-    \expandafter\@secondoftwo
-  \else
-    \expandafter\@firstoftwo
-  \fi
-}
-\makeatother
+% \makeatletter
+% \newcommand\ifSubfilesClassLoaded{%
+%   \expandafter\ifx\csname ver@subfiles.cls\endcsname\relax
+%     \expandafter\@secondoftwo
+%   \else
+%     \expandafter\@firstoftwo
+%   \fi
+% }
+% \makeatother
 
 
 \begin{document}
